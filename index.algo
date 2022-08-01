@@ -1,41 +1,27 @@
-ALGORITHM checkpointAlgo
+ALGORITHM Vowels_Length
 VAR
-        Define a string.
+    c:CHAR
+    NB_CHAR:= Integer :=1
+    NB_VOWELS:=0
+    NB_Spaces:Integer :=1
+    str: STRING[]
 BEGIN
-    FUNCTION words_count(sentence) : number
-    VAR
-        Define and initialize a variable count to 0.
-    BEGIN
-        Read characters from 0 to EOL(End of Line) character for 'sentence' and store the count in variable 'sentence_length'
-        Initialize i=0, words_count=1;
-        Repeat Until i<=sentence_length
-        check if character at i position is space(' ')
-        then words_count=words_count+1;
-        i=i+1
-        print "Number of words is" + words_count
-        return words_count
-    END
-    FUNCTION caracter_count(sentence) : number
-    VAR
-        Define and initialize a variable count to 0.
-    BEGIN
-       Iterate through the string till the end and for each character except spaces, 
-       increment the count by 1.
-       To avoid counting the spaces check the condition i.e. string[i] != ' '.
-        RETURN caracter_count ;
-    END
-    FUNCTION num_vowels(sentence) : number
-    VAR
-        Define a string.
-    BEGIN
-        Convert the string to lower case so that comparisons can be reduced. 
-        Else we need to compare with capital (A, E, I, O, U).
-        If any character in string matches with vowels (a, e, i, o, u ) then increment the vcount by 1.
-        If any character lies between 'a' and 'z' except vowels, then increment the count for ccount by 1.
-        Print both the counts.
-        RETURN value ;
-    END
-    words_count(sentence)
-    caracter_count(sentence)
-    num_vowels(sentence)
+    REPEAT
+        write("put a character") 
+        read(c)
+        IF (c in ["a","u","e","y","i","o","A","U","E","Y","I","O"])
+            NB_VOWELS:= NB_VOWELS+1
+        END
+        END_IF
+    IF(c=" ") THEN
+       NB_Spaces:=NB_Spaces+1
+    ELSE
+     NB_CHAR:=NB_CHAR+1
+    END_IF
+    str=str+c
+       until(c=".")
+    write("SENTENCE:", str)
+    write("NB_VOWELS:",NB_VOWELS)
+    write("NB_WORDS:",NB_Spaces)
+    write("LENGTH:", NB_CHAR+NB_Spaces-1)
 END
